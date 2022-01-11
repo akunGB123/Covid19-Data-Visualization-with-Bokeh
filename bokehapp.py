@@ -43,7 +43,7 @@ df
 # In[6]:
 
 
-df.isnull().sum()
+#df.isnull().sum()
 
 
 # In[7]:
@@ -86,23 +86,15 @@ df_asia.drop(columns='continent',inplace=True)
 df_indo = df_asia[df_asia['location'] == 'Indonesia']
 
 
-# In[14]:
+# In[13]:
 
 
 df_indo
 
 
-# In[15]:
-
-
-import matplotlib.pyplot as plt
-plt.figure(figsize=(20,10))
-plt.plot(df_indo['date'],df_indo['new_deaths'])
-
-
 # # BOKEH
 
-# In[16]:
+# In[14]:
 
 
 #Membuat data untuk source awal plottingan
@@ -110,7 +102,7 @@ df_select = df_asia[df_asia['location'] == 'Indonesia']
 df_select2 = df_asia[df_asia['location'] == 'Malaysia']
 
 
-# In[17]:
+# In[15]:
 
 
 #Membuat source data untuk plotting data
@@ -125,7 +117,7 @@ source2 = ColumnDataSource(data={
 })
 
 
-# In[18]:
+# In[16]:
 
 
 #Mengatur Figure gambar
@@ -161,7 +153,7 @@ fig_gambar.add_tools(HoverTool(tooltips=[
                                mode='vline'))
 
 
-# In[19]:
+# In[17]:
 
 
 def update_plot(attr, old, new):
@@ -192,7 +184,7 @@ def update_plot(attr, old, new):
     source2.data = new_source2
 
 
-# In[20]:
+# In[18]:
 
 
 def updateNegara_plot(attr, old, new):
@@ -219,7 +211,7 @@ def updateNegara_plot(attr, old, new):
     source2.data = new_source2
 
 
-# In[21]:
+# In[19]:
 
 
 #Pilihan pada Select berupa List Seluruh Negara
@@ -268,7 +260,7 @@ select2.on_change('value', updateNegara_plot)
 select3.on_change('value', update_plot)
 
 
-# In[22]:
+# In[20]:
 
 
 #Membuat layout gambar
